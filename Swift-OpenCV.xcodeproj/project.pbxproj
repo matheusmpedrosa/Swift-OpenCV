@@ -12,6 +12,8 @@
 		801C98892215A65F0043E25A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801C98872215A65F0043E25A /* Main.storyboard */; };
 		801C988B2215A6610043E25A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 801C988A2215A6610043E25A /* Assets.xcassets */; };
 		801C988E2215A6610043E25A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801C988C2215A6610043E25A /* LaunchScreen.storyboard */; };
+		801C98972215A69A0043E25A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801C98962215A69A0043E25A /* opencv2.framework */; };
+		801C98A02215A7C00043E25A /* Swift-OpenCV-Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 801C989F2215A7C00043E25A /* Swift-OpenCV-Wrapper.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,11 @@
 		801C988A2215A6610043E25A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		801C988D2215A6610043E25A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		801C988F2215A6610043E25A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		801C98962215A69A0043E25A /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../../Downloads/opencv2.framework; sourceTree = "<group>"; };
+		801C989F2215A7C00043E25A /* Swift-OpenCV-Wrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "Swift-OpenCV-Wrapper.mm"; sourceTree = "<group>"; };
+		801C98A12215A7C90043E25A /* Swift-OpenCV-Wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift-OpenCV-Wrapper.h"; sourceTree = "<group>"; };
+		801C98A22215A7E20043E25A /* Swift-OpenCV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift-OpenCV-Bridging-Header.h"; sourceTree = "<group>"; };
+		801C98A32215A8EC0043E25A /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				801C98972215A69A0043E25A /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +48,7 @@
 			children = (
 				801C98822215A65F0043E25A /* Swift-OpenCV */,
 				801C98812215A65F0043E25A /* Products */,
+				801C98952215A69A0043E25A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +63,26 @@
 		801C98822215A65F0043E25A /* Swift-OpenCV */ = {
 			isa = PBXGroup;
 			children = (
+				801C989F2215A7C00043E25A /* Swift-OpenCV-Wrapper.mm */,
+				801C98A12215A7C90043E25A /* Swift-OpenCV-Wrapper.h */,
+				801C98A22215A7E20043E25A /* Swift-OpenCV-Bridging-Header.h */,
 				801C98832215A65F0043E25A /* AppDelegate.swift */,
 				801C98852215A65F0043E25A /* ViewController.swift */,
 				801C98872215A65F0043E25A /* Main.storyboard */,
 				801C988A2215A6610043E25A /* Assets.xcassets */,
 				801C988C2215A6610043E25A /* LaunchScreen.storyboard */,
 				801C988F2215A6610043E25A /* Info.plist */,
+				801C98A32215A8EC0043E25A /* opencv2.framework */,
 			);
 			path = "Swift-OpenCV";
+			sourceTree = "<group>";
+		};
+		801C98952215A69A0043E25A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				801C98962215A69A0043E25A /* opencv2.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +117,7 @@
 				TargetAttributes = {
 					801C987F2215A65F0043E25A = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -137,6 +159,7 @@
 			files = (
 				801C98862215A65F0043E25A /* ViewController.swift in Sources */,
 				801C98842215A65F0043E25A /* AppDelegate.swift in Sources */,
+				801C98A02215A7C00043E25A /* Swift-OpenCV-Wrapper.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,8 +305,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R95CT9ATA8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Swift-OpenCV",
+				);
 				INFOPLIST_FILE = "Swift-OpenCV/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -291,6 +319,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "m2p.Swift-OpenCV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Swift-OpenCV/Swift-OpenCV-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -300,8 +330,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R95CT9ATA8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Swift-OpenCV",
+				);
 				INFOPLIST_FILE = "Swift-OpenCV/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -309,6 +344,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "m2p.Swift-OpenCV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Swift-OpenCV/Swift-OpenCV-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
