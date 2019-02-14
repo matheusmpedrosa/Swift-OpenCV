@@ -63,9 +63,8 @@
 		801C98822215A65F0043E25A /* Swift-OpenCV */ = {
 			isa = PBXGroup;
 			children = (
-				801C989F2215A7C00043E25A /* Swift-OpenCV-Wrapper.mm */,
-				801C98A12215A7C90043E25A /* Swift-OpenCV-Wrapper.h */,
 				801C98A22215A7E20043E25A /* Swift-OpenCV-Bridging-Header.h */,
+				801C98A52215D3AB0043E25A /* OpenCV */,
 				801C98832215A65F0043E25A /* AppDelegate.swift */,
 				801C98852215A65F0043E25A /* ViewController.swift */,
 				801C98872215A65F0043E25A /* Main.storyboard */,
@@ -83,6 +82,15 @@
 				801C98962215A69A0043E25A /* opencv2.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		801C98A52215D3AB0043E25A /* OpenCV */ = {
+			isa = PBXGroup;
+			children = (
+				801C989F2215A7C00043E25A /* Swift-OpenCV-Wrapper.mm */,
+				801C98A12215A7C90043E25A /* Swift-OpenCV-Wrapper.h */,
+			);
+			path = OpenCV;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
