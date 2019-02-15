@@ -6,6 +6,13 @@
 //  Copyright © 2019 Matheus Pedrosa. All rights reserved.
 //
 
+//TO DO:
+//criar outlet pra viewMore
+//animação de esconder/mostrar a viewMore com constraint e tals
+//dismiss da viewMore ao clicar fora pra view ou outra coisa
+
+
+
 import UIKit
 
 class ViewController: UIViewController {
@@ -16,6 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var lblImageResolution: UILabel!
     @IBOutlet weak var lblNumberOfPixels: UILabel!
+    @IBOutlet weak var btnMatrixOfQuantifiedValues: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

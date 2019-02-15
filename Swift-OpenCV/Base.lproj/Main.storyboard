@@ -93,7 +93,7 @@
                     <connections>
                         <outlet property="btnCamera" destination="OEv-zW-KDm" id="401-oJ-CoL"/>
                         <outlet property="btnLibrary" destination="bp1-6r-1gg" id="nNS-Ti-bXB"/>
-                        <outlet property="btnMatrixOfQuantifiedValues" destination="Jjc-MF-EaE" id="df3-WU-JKZ"/>
+                        <outlet property="btnMatrixOfQuantifiedValues" destination="Jjc-MF-EaE" id="hQN-3M-wIb"/>
                         <outlet property="btnMoreView" destination="dNA-sF-qcc" id="bKa-Kz-tWm"/>
                         <outlet property="image" destination="qnM-Az-jvW" id="i5K-Zg-kxQ"/>
                         <outlet property="lblImageResolution" destination="HiX-iv-hK6" id="z40-Kj-qac"/>
@@ -107,13 +107,13 @@
         <!--Matrix of Quantified Values-->
         <scene sceneID="uzM-gB-KXg">
             <objects>
-                <tableViewController title="Matrix of Quantified Values" id="L65-9P-IEb" sceneMemberID="viewController">
+                <tableViewController title="Matrix of Quantified Values" id="L65-9P-IEb" customClass="RBGPerPixelTableViewController" customModule="Swift_OpenCV" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pdr-aC-ZCQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="DC3-aA-6RL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="DC3-aA-6RL" customClass="RGBPerPixelTableViewCell" customModule="Swift_OpenCV" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DC3-aA-6RL" id="XZl-KR-ACW">
@@ -178,6 +178,13 @@
                                         <constraint firstItem="BK4-pw-L3N" firstAttribute="centerY" secondItem="XZl-KR-ACW" secondAttribute="centerY" id="qNk-qi-rMx"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lblBlue" destination="QPE-iB-KHT" id="eYd-AF-UD4"/>
+                                    <outlet property="lblGreen" destination="5My-Ee-L7l" id="SBR-y6-fAT"/>
+                                    <outlet property="lblHeight" destination="F6i-bx-kbh" id="D9V-48-QTn"/>
+                                    <outlet property="lblRed" destination="gP4-0w-1WC" id="cJq-j9-T8C"/>
+                                    <outlet property="lblWidth" destination="RqY-pZ-34O" id="M3F-yX-pT4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

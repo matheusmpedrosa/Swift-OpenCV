@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80042ED42217346C00365390 /* RBGPerPixelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80042ED32217346C00365390 /* RBGPerPixelTableViewController.swift */; };
+		80042ED62217357400365390 /* RGBPerPixelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80042ED52217357400365390 /* RGBPerPixelTableViewCell.swift */; };
 		801C98842215A65F0043E25A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801C98832215A65F0043E25A /* AppDelegate.swift */; };
 		801C98862215A65F0043E25A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801C98852215A65F0043E25A /* ViewController.swift */; };
 		801C98892215A65F0043E25A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801C98872215A65F0043E25A /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		80042ED32217346C00365390 /* RBGPerPixelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBGPerPixelTableViewController.swift; sourceTree = "<group>"; };
+		80042ED52217357400365390 /* RGBPerPixelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBPerPixelTableViewCell.swift; sourceTree = "<group>"; };
 		801C98802215A65F0043E25A /* Swift-OpenCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-OpenCV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		801C98832215A65F0043E25A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		801C98852215A65F0043E25A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +47,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		80042ED72217362800365390 /* RGB per Pixel */ = {
+			isa = PBXGroup;
+			children = (
+				80042ED32217346C00365390 /* RBGPerPixelTableViewController.swift */,
+				80042ED52217357400365390 /* RGBPerPixelTableViewCell.swift */,
+			);
+			path = "RGB per Pixel";
+			sourceTree = "<group>";
+		};
+		80042ED82217364600365390 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				801C98852215A65F0043E25A /* ViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		801C98772215A65F0043E25A = {
 			isa = PBXGroup;
 			children = (
@@ -66,7 +87,8 @@
 				801C98A22215A7E20043E25A /* Swift-OpenCV-Bridging-Header.h */,
 				801C98A52215D3AB0043E25A /* OpenCV */,
 				801C98832215A65F0043E25A /* AppDelegate.swift */,
-				801C98852215A65F0043E25A /* ViewController.swift */,
+				80042ED82217364600365390 /* Main */,
+				80042ED72217362800365390 /* RGB per Pixel */,
 				801C98872215A65F0043E25A /* Main.storyboard */,
 				801C988A2215A6610043E25A /* Assets.xcassets */,
 				801C988C2215A6610043E25A /* LaunchScreen.storyboard */,
@@ -165,8 +187,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80042ED62217357400365390 /* RGBPerPixelTableViewCell.swift in Sources */,
 				801C98862215A65F0043E25A /* ViewController.swift in Sources */,
 				801C98842215A65F0043E25A /* AppDelegate.swift in Sources */,
+				80042ED42217346C00365390 /* RBGPerPixelTableViewController.swift in Sources */,
 				801C98A02215A7C00043E25A /* Swift-OpenCV-Wrapper.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
