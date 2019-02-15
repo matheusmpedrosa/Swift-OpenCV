@@ -11,6 +11,11 @@
 
 @interface SwiftOpenCVWrapper : NSObject
 
-+(NSString *) openCVVersionString;
++(NSString *) openCVVersionString; //get OpenCV Version
+
++(int) getImageWidth:(UIImage *)image;
++(int) getImageHeight:(UIImage *)image;
+
+
 
 @end
