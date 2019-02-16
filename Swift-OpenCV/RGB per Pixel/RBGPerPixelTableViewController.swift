@@ -7,91 +7,49 @@
 //
 
 //TO DO:
-//criar tableViewCell e criar outlets das labels
-//pegar a imagem da ViewController
-//tableview data source
-//https://stackoverflow.com/questions/8932893/accessing-certain-pixel-rgb-value-in-opencv
 //aquele navegador lateral direito tipo no app de contatos de deslizar e ir mais rápido ao valor
 
 import UIKit
 
 class RBGPerPixelTableViewController: UITableViewController {
+    
+    var receivedImage = UIImage()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.alwaysBounceVertical = false //desabilita o scroll caso a tableView caiba na tela
+        tableView.tableFooterView = UIView() //esconde as separator lines extras depois do ultimo elemento da tableView
     }
 
     // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Column #\(section)"
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // poderia ser um section pra cada linha ou coluna
-        return 0
+        return Int(SwiftOpenCVWrapper.getImageHeight(receivedImage))
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Int(SwiftOpenCVWrapper.getImageWidth(receivedImage))
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RGBPerPixelTableViewCell
 
-        // Configure the cell...
+        let w = indexPath.row
+        let h = indexPath.section
+        cell.lblWidth.text = "row: \(w)"
+        cell.lblRed.text = "\(SwiftOpenCVWrapper.getPixelRedValue(Int32(w), Int32(h), receivedImage))"
+        cell.lblGreen.text = "\(SwiftOpenCVWrapper.getPixelGreenValue(Int32(w), Int32(h), receivedImage))"
+        cell.lblBlue.text = "\(SwiftOpenCVWrapper.getPixelBlueValue(Int32(w), Int32(h), receivedImage))"
 
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80.0
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

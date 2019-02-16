@@ -29,11 +29,6 @@ using std::stringstream;
     cv::Mat imageMat;
     UIImageToMat(image, imageMat);
     
-//    stringstream width;
-//    width << imageMat.size().width;
-    NSLog(@"width: %d",imageMat.size().width);
-    
-//    return [NSString stringWithFormat:@"%s", width.str().c_str()];
     return imageMat.size().width;
 }
 
@@ -43,12 +38,31 @@ using std::stringstream;
     cv::Mat imageMat;
     UIImageToMat(image, imageMat);
     
-//    stringstream height;
-//    height << imageMat.size().height;
-    NSLog(@"height: %d",imageMat.size().height);
-    
-//    return [NSString stringWithFormat:@"%s", height.str().c_str()];
     return imageMat.size().height;
+}
+
++ (int)getPixelRedValue:(int)width :(int)height :(UIImage *)image {
+    //transformar UIImage para cv::Mat
+    cv::Mat imageMat;
+    UIImageToMat(image, imageMat);
+    
+    return imageMat.at<cv::Vec3b>(height,width)[0];
+}
+
++ (int)getPixelGreenValue:(int)width :(int)height :(UIImage *)image {
+    //transformar UIImage para cv::Mat
+    cv::Mat imageMat;
+    UIImageToMat(image, imageMat);
+    
+    return imageMat.at<cv::Vec3b>(height,width)[1];
+}
+
++ (int)getPixelBlueValue:(int)width :(int)height :(UIImage *)image {
+    //transformar UIImage para cv::Mat
+    cv::Mat imageMat;
+    UIImageToMat(image, imageMat);
+    
+    return imageMat.at<cv::Vec3b>(height,width)[3];
 }
 
 @end

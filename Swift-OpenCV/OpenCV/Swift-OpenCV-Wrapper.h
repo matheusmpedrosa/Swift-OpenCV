@@ -16,6 +16,8 @@
 +(int) getImageWidth:(UIImage *)image;
 +(int) getImageHeight:(UIImage *)image;
 
-
++(int) getPixelRedValue:(int)width: (int)height: (UIImage *)image;
++(int) getPixelGreenValue:(int)width: (int)height: (UIImage *)image;
++(int) getPixelBlueValue:(int)width: (int)height: (UIImage *)image;
 
 @end
