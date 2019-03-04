@@ -12,7 +12,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var btnMoreView: UIBarButtonItem!
     @IBOutlet weak var btnCamera: UIBarButtonItem!
     @IBOutlet weak var btnLibrary: UIBarButtonItem!
@@ -23,65 +23,73 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnMatrixOfQuantifiedValues: UIButton!
     @IBOutlet weak var constraintBottomViewMore: NSLayoutConstraint!
     
-    var viewMoreIsHidden = Bool()
+    var imageResolutionViewIsHidden = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Main"
-        
         print(SwiftOpenCVWrapper.openCVVersionString())
         
-        viewMoreIsHidden = true
-        lblImageResolution.text = ""
-        lblNumberOfPixels.text = ""
+        if image.image != nil {
+            getImageSize()
+        } else {
+            viewMore.isHidden = true
+            lblImageResolution.text = ""
+            lblNumberOfPixels.text = ""
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if image.image != nil {
-            if segue.identifier == "segueToMatrixView" {
+            switch segue.identifier {
+            case "segueToMatrixView":
                 if let destination = segue.destination as? RBGPerPixelTableViewController {
                     destination.receivedImage = image.image!
                 }
+            case "segueToArithmeticView":
+                print("arithmetic view")
+            default:
+                break
             }
         }
     }
     
+    fileprivate func getImageSize() {
+        //get image size if available
+        let w = SwiftOpenCVWrapper.getImageWidth(image.image!)
+        let h = SwiftOpenCVWrapper.getImageHeight(image.image!)
+        let p = w * h
+        lblImageResolution.text = "\(w) x \(h)"
+        lblNumberOfPixels.text = "\(p) pixels"
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.viewMore.isHidden = false
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
     @IBAction func toggleShowMoreView(_ sender: Any) {
-        if viewMoreIsHidden { //toggle labels
-            if image.image != nil { //get resolution if available
-                let w = SwiftOpenCVWrapper.getImageWidth(image.image!)
-                let h = SwiftOpenCVWrapper.getImageHeight(image.image!)
-                let p = w * h
-                lblImageResolution.text = "\(w) x \(h)"
-                lblNumberOfPixels.text = "\(p) pixels"
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-                    self.constraintBottomViewMore.constant = 0
-                    self.viewMoreIsHidden = false
-                    self.view.layoutIfNeeded()
-                }, completion: nil)
-            } else {
-                // create the alert
-                let alert = UIAlertController(title: "Wait!", message: "First you need to select an image.", preferredStyle: UIAlertController.Style.alert)
-                
-                // add the actions (buttons)
-                alert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: { action in
+        if image.image == nil {
+            presentAlertWithOptions(title: "Wait!", message: "First you need to select an image", style: .alert, options: "Open Camera", "Open Photo Library", "Cancel") { (option) in
+                switch option {
+                case 0:
                     self.openCamera((Any).self)
-                }))
-                alert.addAction(UIAlertAction(title: "Open Photo Library", style: .default, handler: { action in
+                case 1:
                     self.openLibrary((Any).self)
-                }))
-                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-                
-                // show the alert
-                self.present(alert, animated: true, completion: nil)
+                default:
+                    break
+                }
             }
         } else {
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.constraintBottomViewMore.constant = -300
-                self.viewMoreIsHidden = true
-                self.view.layoutIfNeeded()
-            }, completion: nil)
+            presentAlertWithOptions(title: "Choose what to do with this image", message: nil, style: .actionSheet, options: "Matrix of Quantified Values", "Arithmetic Operations", "Cancel") { (option) in
+                switch option {
+                case 0:
+                    self.performSegue(withIdentifier: "segueToMatrixView", sender: nil)
+                case 1:
+                    self.performSegue(withIdentifier: "segueToArithmeticView", sender: nil)
+                default:
+                    break
+                }
+            }
         }
     }
     
@@ -108,7 +116,7 @@ class ViewController: UIViewController {
     @IBAction func displayMatrixView(_ sender: Any) {
         let w = SwiftOpenCVWrapper.getImageWidth(image.image!)
         let h = SwiftOpenCVWrapper.getImageHeight(image.image!)
-        if w >= 500 || h >= 500 {
+        if w >= 150 || h >= 150 {
             let alert = UIAlertController(title: "Be careful!", message: "The image size seems to be too big.\nIt will take some time to processe the matrix information.", preferredStyle: UIAlertController.Style.alert)
             
             // add the actions (buttons)
@@ -128,7 +136,8 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let imagePicked = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         image.image = imagePicked
+        getImageSize()
+        viewMore.isHidden = false
         dismiss(animated: true, completion: nil)
-        viewMoreIsHidden = true
     }
 }
