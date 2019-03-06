@@ -47,7 +47,9 @@ class ViewController: UIViewController {
                     destination.receivedImage = image.image!
                 }
             case "segueToArithmeticView":
-                print("arithmetic view")
+                if let destination = segue.destination as? ArithmeticOperationsTableViewController {
+                    destination.receivedImage = image.image!
+                }
             default:
                 break
             }

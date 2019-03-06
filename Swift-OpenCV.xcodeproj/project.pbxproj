@@ -11,6 +11,11 @@
 		80042ED62217357400365390 /* RGBPerPixelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80042ED52217357400365390 /* RGBPerPixelTableViewCell.swift */; };
 		8018064E222D9A7700B6FB40 /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8018064D222D9A7700B6FB40 /* UIViewControllerUtils.swift */; };
 		80180651222DAC0200B6FB40 /* ArithmeticOperationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80180650222DAC0200B6FB40 /* ArithmeticOperationsTableViewController.swift */; };
+		80180653222DF63A00B6FB40 /* FirstImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80180652222DF63A00B6FB40 /* FirstImageTableViewCell.swift */; };
+		80180655222DF64400B6FB40 /* SecondImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80180654222DF64400B6FB40 /* SecondImageTableViewCell.swift */; };
+		80180657222DF64B00B6FB40 /* ArithmeticOperationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80180656222DF64B00B6FB40 /* ArithmeticOperationTableViewCell.swift */; };
+		80180659222DF66E00B6FB40 /* RunArithmeticOperationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80180658222DF66E00B6FB40 /* RunArithmeticOperationTableViewCell.swift */; };
+		8018065B222DF68400B6FB40 /* FinalImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8018065A222DF68400B6FB40 /* FinalImageTableViewCell.swift */; };
 		801C98842215A65F0043E25A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801C98832215A65F0043E25A /* AppDelegate.swift */; };
 		801C98862215A65F0043E25A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801C98852215A65F0043E25A /* ViewController.swift */; };
 		801C98892215A65F0043E25A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801C98872215A65F0043E25A /* Main.storyboard */; };
@@ -25,6 +30,11 @@
 		80042ED52217357400365390 /* RGBPerPixelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBPerPixelTableViewCell.swift; sourceTree = "<group>"; };
 		8018064D222D9A7700B6FB40 /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
 		80180650222DAC0200B6FB40 /* ArithmeticOperationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticOperationsTableViewController.swift; sourceTree = "<group>"; };
+		80180652222DF63A00B6FB40 /* FirstImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstImageTableViewCell.swift; sourceTree = "<group>"; };
+		80180654222DF64400B6FB40 /* SecondImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondImageTableViewCell.swift; sourceTree = "<group>"; };
+		80180656222DF64B00B6FB40 /* ArithmeticOperationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticOperationTableViewCell.swift; sourceTree = "<group>"; };
+		80180658222DF66E00B6FB40 /* RunArithmeticOperationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunArithmeticOperationTableViewCell.swift; sourceTree = "<group>"; };
+		8018065A222DF68400B6FB40 /* FinalImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalImageTableViewCell.swift; sourceTree = "<group>"; };
 		801C98802215A65F0043E25A /* Swift-OpenCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-OpenCV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		801C98832215A65F0043E25A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		801C98852215A65F0043E25A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,9 +91,22 @@
 		8018064F222DABCA00B6FB40 /* Arithmetic Operations */ = {
 			isa = PBXGroup;
 			children = (
+				8018065C222DF68F00B6FB40 /* TableViewCells */,
 				80180650222DAC0200B6FB40 /* ArithmeticOperationsTableViewController.swift */,
 			);
 			path = "Arithmetic Operations";
+			sourceTree = "<group>";
+		};
+		8018065C222DF68F00B6FB40 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				80180652222DF63A00B6FB40 /* FirstImageTableViewCell.swift */,
+				80180656222DF64B00B6FB40 /* ArithmeticOperationTableViewCell.swift */,
+				80180654222DF64400B6FB40 /* SecondImageTableViewCell.swift */,
+				80180658222DF66E00B6FB40 /* RunArithmeticOperationTableViewCell.swift */,
+				8018065A222DF68400B6FB40 /* FinalImageTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		801C98772215A65F0043E25A = {
@@ -210,11 +233,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8018064E222D9A7700B6FB40 /* UIViewControllerUtils.swift in Sources */,
+				80180659222DF66E00B6FB40 /* RunArithmeticOperationTableViewCell.swift in Sources */,
 				80042ED62217357400365390 /* RGBPerPixelTableViewCell.swift in Sources */,
 				801C98862215A65F0043E25A /* ViewController.swift in Sources */,
+				8018065B222DF68400B6FB40 /* FinalImageTableViewCell.swift in Sources */,
 				801C98842215A65F0043E25A /* AppDelegate.swift in Sources */,
 				80180651222DAC0200B6FB40 /* ArithmeticOperationsTableViewController.swift in Sources */,
+				80180655222DF64400B6FB40 /* SecondImageTableViewCell.swift in Sources */,
 				80042ED42217346C00365390 /* RBGPerPixelTableViewController.swift in Sources */,
+				80180657222DF64B00B6FB40 /* ArithmeticOperationTableViewCell.swift in Sources */,
+				80180653222DF63A00B6FB40 /* FirstImageTableViewCell.swift in Sources */,
 				801C98A02215A7C00043E25A /* Swift-OpenCV-Wrapper.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
